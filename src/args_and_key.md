@@ -5,7 +5,7 @@
 
 > HTTP 请求方法:POST,GET
 
-> 注意: 优先用URL中存在sign参数,不存在时在使用POST中的sign参数
+> 注意: 仅当请求类型为POST且Content-type为application/x-www-form-urlencoded将从POST解析参数,其他情况从GET解析参数
 
 ####  API域名:
 
