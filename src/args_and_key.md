@@ -34,9 +34,8 @@
 | ---- | ---- | ---------- | -------- | ---- |
 |request_id					|String	|是			|32		|每次请求访问的唯一标识|
 |result_response.code		|String	|是			|12		|系统状态码,除200外均为异|常
-|result_response.msg			|String	|是			|64		|系统消息|
 |result_response.sub_code	|String	|是			|12		|业务状态标识,一般为 |success,可能为空其他
-|result_response.sub_msg		|String	|是			|12		|业务消息|
+|result_response.msg		|String	|是			|64		|相关消息|
 |response					|Array	|是			|不限		|业务相关数据,可能为:{}|
 
 ##### 返回参数示例:
@@ -46,9 +45,8 @@
 	"request_id":"ddf817fd3def5c7",
     "result_response": {
         "code": "200",
-        "msg": "Ok",
         "sub_code": "product_not_find",
-        "sub_msg": "商品未找到"
+        "msg": "商品未找到"
     },
     "response": {
 		"product":{
