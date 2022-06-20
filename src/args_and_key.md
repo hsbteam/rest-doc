@@ -11,6 +11,12 @@
 
 > https://rest-api.huishoubao.com/
 
+####  公共请求HEADER:
+
+| 参数 | 类型 | 是否必填 | 最大长度 | 描述 | 示例值 |
+| ---- | ---- | -------- | -------- | ---- | ------ |
+|X-Request-ID	|String	|否		|32		|请求ID,每次请求不同			|xxxxx12456 |
+
 ####  公共请求参数说明:
 
 | 参数 | 类型 | 是否必填 | 最大长度 | 描述 | 示例值 |
@@ -22,18 +28,24 @@
 |sign		|String	|是		|344		|请求参数的签名串	|生成方式参见`签名生成`|
 |content	|String	|是		|无		|请求参数的集合,JSON字符串.<br/>除公共参数外所有请求参数都必须放在这个参数中传递|无|
 |token	|String	|否		|无		|指定用户授权TOKEN,非必填|MTQtSldES1RIUVVZT0NGUkVNUEdJQlpBTlhM|
-|request_id	|String	|否		|64		|请求ID,每次请求不同,填写后由`公共返回参数request_id`返回|uniquid1231231|
+
 
 ##### 请求参数示例:
 
 > app_key=caigouxia&content=%7B%22detail_id%22%3A%22111%22%2C%22attr%22%3A%22Brand%2CSale%22%7D&method=product.detail&timestamp=2022-05-16+14%3A13%3A07&version=1.0&sign=0cf4ecb5c5edef7215a6e3e43a9e0c9b
 
 
+####  公共返回HEADER:
+
+| 参数 | 类型 | 是否必填 | 最大长度 | 描述 | 示例值 |
+| ---- | ---- | -------- | -------- | ---- | ------ |
+|X-Request-ID	|String	|否		|32		|如果请求时存在原样返回,否则系统内部会生成一个			|xxxxx12456 |
+
+
 #### 公共返回参数说明:
 
 | 参数 | 类型 | 是否必返回 | 最大长度 | 描述 |
 | ---- | ---- | ---------- | -------- | ---- |
-|request_id					|String	|是			|32		|每次请求访问的唯一标识,示例:uniquid1231231|
 |result_response.code		|String	|是			|12		|系统状态码,除200外均为异|常
 |result_response.sub_code	|String	|是			|12		|业务状态标识,一般为 |success,可能为空其他
 |result_response.message		|String	|是			|64		|相关消息|
@@ -43,7 +55,6 @@
 
 ```
 {
-	"request_id":"ddf817fd3def5c7",
     "result_response": {
         "code": "200",
         "sub_code": "product_not_find",
@@ -61,7 +72,7 @@
 
 ####  签名生成方法及示例:
 
-> `注意`: 仅使用 timestamp,app_key,method,version,content,token,request_id 这些参数参与秘钥生成,其中 token,request_id 为可选值
+> `注意`: 仅使用 timestamp,app_key,method,version,content,token 这些参数参与秘钥生成,其中 token 为可选值
 
 ##### 示例秘钥
 
