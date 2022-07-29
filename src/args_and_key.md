@@ -26,7 +26,7 @@
 |timestamp	|String	|是		|19		|发送请求的时间<br/>格式"yyyy-MM-dd HH:mm:ss"	| 	2014-07-24 03:07:50|
 |sign		|String	|是		|344		|请求参数的签名串	|生成方式参见`签名生成`|
 |content	|String	|是		|无		|请求参数的集合,JSON字符串.<br/>除公共参数外所有请求参数都必须放在这个参数中传递|无|
-|method		|String	|否		|128		|接口名称			|product.detail|
+|method		|String	|否		|128		|接口名称,非必须,可以放到URL中,存在时加入签名			|product.detail|
 |token	|String	|否		|无		|指定用户授权TOKEN,非必填|MTQtSldES1RIUVVZT0NGUkVNUEdJQlpBTlhM|
 
 
